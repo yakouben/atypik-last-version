@@ -255,7 +255,7 @@ export default function HeroSection({ onReserverClick, onAddPropertyClick, onCon
                 {/* Right Side - Search and Actions */}
                 <div className="flex items-center space-x-4 lg:space-x-6">
                   {/* Global Search Bar */}
-                  <div className="relative search-container">
+                  <div className="hidden sm:block relative search-container">
                     <button
                       onClick={openSearchWidget}
                       className="search-button w-full sm:w-64 pl-10 pr-4 py-2.5 sm:py-3 rounded-full text-left text-gray-500 transition-all duration-200 flex items-center shadow-sm"
@@ -298,7 +298,20 @@ export default function HeroSection({ onReserverClick, onAddPropertyClick, onCon
               {/* Mobile Menu */}
               {isMobileMenuOpen && (
                 <div className="lg:hidden mt-4 pt-4 border-t border-gray-200">
-                  {/* Mobile Search Button */}
+                   {/* Mobile Search Button */}
+                  <div className="mb-4">
+                    <button
+                      onClick={() => {
+                        setIsMobileMenuOpen(false);
+                        openSearchWidget();
+                      }}
+                      className="mobile-search-button w-full pl-10 pr-4 py-3 rounded-full text-left text-gray-500 transition-all duration-200 flex items-center shadow-sm"
+                    >
+                      <Search className="w-4 h-4 text-gray-400 mr-3" />
+                      <span className="text-sm font-medium">Rechercher</span>
+                    </button>
+                  </div>
+                  
                   <nav className="space-y-3">
                     <a href="#" className="block text-gray-700 font-medium">Accueil</a>
                     <button onClick={handleContactClick} className="block w-full text-left text-gray-700 font-medium">Contact</button>
